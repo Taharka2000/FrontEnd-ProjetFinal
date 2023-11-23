@@ -1,0 +1,18 @@
+.services{
+   background-color: black;
+}
+
+.body1{
+    background-color: #FFCE33;
+    width: 90%;
+    margin-left: 100px;
+}
+.main1{
+    background-color: #F9F8EB;
+}
+.str7{
+    left:50%;
+    margin-left:-100px;
+    position:static;
+    background-color: #131721;
+  }

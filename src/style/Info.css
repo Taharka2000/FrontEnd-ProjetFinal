@@ -1,0 +1,21 @@
+.principale{
+    background-color: #F9F8EB;
+    width: 20%;
+   height: 50%;
+   margin-left: 20px;
+   border-radius: 10px;
+}
+.main1{
+    margin-left: 30px;
+   
+}
+.main1 a{
+   display: flex;
+   flex-direction: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.bnt2{
+ padding: 0px 10px 0px 30px;
+}

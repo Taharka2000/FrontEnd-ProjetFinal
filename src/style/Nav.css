@@ -1,0 +1,294 @@
+
+.body{
+  background:#FFCE33;
+}
+header{
+
+}
+ul {
+gap: 5rem;
+}
+ul li a{
+color: white;
+font-family: Inter;
+font-size: 25px;
+font-style: normal;
+line-height: normal;
+text-align: center;
+}
+ul li{
+    margin-top: 40px;
+}
+.logo{
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+}
+
+.logo h2:hover{
+  width: 140px;
+  height: 38px;
+  background-color: #0C356A;
+  border-radius: 20px;
+}
+.header{
+  position: fixed;
+  width: 100%;
+  height: 14%;
+ 
+}
+.header-bg{
+ background-color: rgb(0,0,0,.9);
+}
+nav{
+position: relative;
+}
+.main{
+padding-bottom: 100px;
+
+}
+.main h1{
+color: white;
+font-family: Inter;
+font-size: 40px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+text-align: left;
+margin-left: 100px;
+padding-top: 300px;
+}
+.pnl{
+  border-radius: 0px 0px 20px 20px;
+background: #F3F3F3;
+width: 382px;
+height: auto;
+flex-shrink: 0;
+}
+h2,h3{
+  color: #000;
+font-family: Inter;
+font-size: 20px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+h4{
+  text-align: center;
+  color: #000;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.img{
+  border-radius: 20px 20px 0px 0px;
+}
+
+.images img{
+  border-radius: 20px 20px 0 0 ;
+}
+
+
+.container1 img{
+  border-radius: 20px;
+  width: 50%;
+  height: 95%;
+}
+
+.tak{
+  background-color: #F9F8EB;
+  margin-top: 175px;
+}
+.str{
+  left:50%;
+  margin-left:-650px;
+  position:absolute;
+background-color: #131721;
+border-radius: 10px;
+}
+.str1{
+  left:50%;
+  margin-left:-260px;
+  position: static;
+}
+.titre h5{
+  color: #131721;
+  font-family: Inter;
+  font-size: 50px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-align: left;
+}
+.title h1{
+  padding-right: 100px;
+  color: #131721;
+  font-family: Inter;
+ font-size: 35px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.title p{
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  color: #131721;
+}
+.str2{
+  
+  margin-left:-450px;
+  position: static;
+}
+.str2 img{
+  border: none;
+}
+.pays h1{
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  color: #131721;
+}
+.country h1{
+  font-size: 60px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  color: #131721;
+  padding-left: 120px;
+  padding-bottom: 40px;
+}
+.str4{
+  left:50%;
+  margin-left:-260px;
+  position: static;
+}
+.str5{
+  position: static;
+}
+.str6{
+position: absolute;
+}
+/* Navbar container */
+.navbar {
+  overflow: hidden;
+  font-family: Arial;
+}
+
+/* Links inside the navbar */
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* The dropdown container */
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+/* Dropdown button */
+.dropdown .dropbtn {
+ font-size: 16px;
+  border: none;
+  outline: none;
+  color: white;
+  
+  background-color: inherit;
+  font-family: inherit; /* Important for vertical align on mobile phones */
+  margin: 0; /* Important for vertical align on mobile phones */
+}
+
+/* Add a red background color to navbar links on hover */
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: #131721;;
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+/* Add a grey background color to dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.bouton{
+  border-radius: 5px;
+  padding: 7px;
+  margin-left: 15px;
+  margin-bottom: 7px;
+  font-size: 16px;
+  color: white;
+  background-color:#131721 ;
+
+}
+.dropbtn h1{
+  color: white;
+  font-family: Inter;
+  font-size: 24px;
+  font-style: normal;
+  line-height: normal;
+  text-align: center;
+}
+.dropbtn{
+  color: black;
+  border: none;
+  cursor: pointer;
+  border-radius: 0.3rem;
+}
+.over{
+  overflow: auto;
+width: 50%;
+}
+
+.carrousel{
+  animation-duration: 10s;
+  animation-name: mesimages;
+  display: flex;
+}
+
+  @keyframes mesimages {
+    0% {
+      transform: translateX(0);
+    }
+    33.33% {
+      transform: translateX(-940px);
+    }
+    66.66% {
+      transform: translateX(-1880px);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  
+
