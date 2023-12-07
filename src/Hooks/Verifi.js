@@ -1,16 +1,16 @@
 import { useState } from "react";
 import { useAuthContext } from "./useAuthContext";
-export const useSignup=()=>{
+export const Useverification=()=>{
     const [error,setError]=useState(null);
     const [isloading,setIsLoading]=useState(null);
     const {dispatch}=useAuthContext()
-    const signup=async(email,password,name,role)=>{
+    const verification=async(email,firstname,lastname,pays)=>{
         setIsLoading(true)
         setError(null)
-        const response=await fetch('http://localhost:4000/signup',{
+        const response=await fetch('http://localhost:4000/verification',{
             method:"POST",
             headers:{'Content-Type':'application/json'},
-            body:JSON.stringify({email,password,name,role})
+            body:JSON.stringify({email,firstname,lastname,pays})
         })
         const json=await response.json()
         if(!response.ok){
@@ -18,10 +18,9 @@ export const useSignup=()=>{
             setError(json.error)
              }
              if(response.ok){
-                localStorage.setItem("user",JSON.stringify(json))
-                dispatch({type:'LOGIN',payload:json})
+                dispatch({type:'SEND',payload:json})
                 setIsLoading(false)
             }
     }
-    return{signup,isloading,error}
+    return{verification,isloading,error}
 }

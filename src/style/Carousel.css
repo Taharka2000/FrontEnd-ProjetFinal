@@ -1,0 +1,13 @@
+.h2 {
+    font-size: 60px;
+    font-family: sans-serif;
+  }
+  .h3 {
+
+    color: white;
+  }
+  .flexe{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }

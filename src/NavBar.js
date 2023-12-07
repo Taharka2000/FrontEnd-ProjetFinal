@@ -34,6 +34,7 @@ export default function NavBar() {
                             <a href="/services">Services</a>
                         </li>
                         <li className='logo pt-2'>
+                            
                             {!user ? (
                                 <div>
                                     <div class="navbar">
@@ -53,7 +54,7 @@ export default function NavBar() {
                                     <div class="navbar">
                                         <div class="dropdown">
                                             <button class="dropbtn">
-                                                <h1>Welcome{user.name}</h1>
+                                                <h1>Welcome:{user.name}</h1>
                                                 <i class="fa fa-caret-down"></i>
                                             </button>
                                             <div class="dropdown-content">
@@ -72,7 +73,9 @@ export default function NavBar() {
                 <div>
 
                 </div>
+
             </header>
+         
         </>
     )
 }

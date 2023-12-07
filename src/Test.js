@@ -17,6 +17,7 @@ export default function Test() {
         <div className="private">
                 <Info/>
         </div>
+            
             <button  onClick={handleClick}>LogOut</button>
         </>
     );

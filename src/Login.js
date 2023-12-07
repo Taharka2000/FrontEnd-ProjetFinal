@@ -6,10 +6,11 @@ import NavBar from "./NavBar";
 function Login() {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+  const [name, setName] = useState("")
   const { login, error, isLoading } = useLogin()
   const handleSubmit = async (e) => {
     e.preventDefault()
-    await login(email, password)
+    await login(email, password,name)
   }
   return (
     <>
@@ -21,13 +22,13 @@ function Login() {
             <div>
               <label htmlFor="email">Email</label>
               <input
-                type="email"
+                type="text"
                 name="email"
                 placeholder="Email"
                 onChange={(e) =>
-                  setEmail(e.target.value)
+                  setEmail(e.target.value)||setName(e.target.value)
                 }
-                value={email}
+                value={email||name}
               />
             </div>
             <div>
@@ -55,5 +56,4 @@ function Login() {
     </>
   );
 }
-
 export default Login;

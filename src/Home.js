@@ -3,32 +3,17 @@ import "./style/Nav.css";
 import NavBar from "./NavBar";
 import LesGp from "./LesGp";
 import Gp from "./CardGp";
+import Caroussel from "./Caroussel";
 import { Link } from "react-router-dom";
+
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-import { Carousel } from 'react-responsive-carousel';
 export default function Home() {
   return (
     <>
       <body className="body">
-        <h4>
-          <div className="str text-white h-[40%] w-[70%] over  border-full mt-[425px]">
-              <div className=" carrousel flex">
-                <div className="container1 flex ">
-                  <img src="./colis.webp" width="" alt="" />
-                 
-                </div>
-                <div className="container1 flex">
-                  <img src="./Liste1.webp" alt="" />
-                  
-                </div>
-                <div className="container1 flex">
-                  <img src="./plane.webp" alt="" />
-
-                 
-                </div>
-              </div>
-          </div>
-        </h4>
+        <div className="str text-white h-[40%] w-[70%] over   border-full mt-[425px]">
+         <Caroussel/>
+        </div>
         <NavBar />
         <main className="main p-[150px]">
           <div className="flex justify-around">
@@ -71,7 +56,6 @@ export default function Home() {
               <p>Shipping Easy provides the simplest online shipping web is here</p>
             </div>
           </div>
-
           <div className="title  pl-[100px]">
             <h1 className="pt-[70px]">We Get Your Goods <br /> On The Way!</h1>
           </div>

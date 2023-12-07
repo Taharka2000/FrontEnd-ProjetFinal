@@ -209,7 +209,8 @@ position: absolute;
 
 /* Add a red background color to navbar links on hover */
 .navbar a:hover, .dropdown:hover .dropbtn {
-  background-color: #131721;;
+  background-color: #131721;
+  padding: 15px;
 }
 
 /* Dropdown content (hidden by default) */
@@ -265,30 +266,47 @@ position: absolute;
   cursor: pointer;
   border-radius: 0.3rem;
 }
+
 .over{
   overflow: auto;
-width: 50%;
-}
-
-.carrousel{
-  animation-duration: 10s;
-  animation-name: mesimages;
-  display: flex;
-}
-
-  @keyframes mesimages {
-    0% {
-      transform: translateX(0);
-    }
-    33.33% {
-      transform: translateX(-940px);
-    }
-    66.66% {
-      transform: translateX(-1880px);
-    }
-    100% {
-      transform: translateX(0);
-    }
-  }
   
+}
+/* Header.css */
+.navbar {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+}
 
+.nav-links {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  gap: 10px;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.hamburger {
+  display: none;
+}
+
+.hamburger-menu {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+      display: none;
+  }
+
+  .hamburger {
+      display: block;
+  }
+
+  .hamburger-menu {
+      display: block;
+  }
+}

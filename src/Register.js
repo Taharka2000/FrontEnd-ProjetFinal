@@ -7,13 +7,12 @@ import "./style/Login.css"
   const [email,setEmail]=useState("")
   const [password,setPassword]=useState("")
   const [name,setName]=useState("")
-  const [role,setRole]=useState("")
   const {signup,error,isLoading}=useSignup()
  
  const handleSubmit=async (e)=>{
 
     e.preventDefault()
-    await signup(email,password,name,role)
+    await signup(email,password,name)
    }
   
   return (
@@ -21,28 +20,9 @@ import "./style/Login.css"
     <NavBar/> 
       <div className="login">
         <div className="container">
-          <h2>Login to your Account</h2>
-          <form onSubmit={handleSubmit}>
+          <h2>Register to your Account</h2>
+          <form onSubmit={handleSubmit} className="max-w-md mx-auto">
             <div>
-              
-            <input
-                type="radio"
-                name="userType"
-                value="User"
-                onChange={(e) =>
-                setRole( e.target.value)
-                }
-              />
-              User
-              <input
-                type="radio"
-                name="userType"
-                value="Admin"
-                onChange={(e) =>
-                  setRole( e.target.value)
-                }
-              />
-              Admin
             </div>
             <div>
               <label htmlFor="email">Email</label>
@@ -82,8 +62,9 @@ import "./style/Login.css"
             </div>
             <button className="bnt1" disabled={isLoading}>Submit</button>
             <span>
-              You already have a account<Link to="/login"> Register </Link>
+              You already have a account<Link to="/login">Login</Link>
             </span>
+            <h1> <Link to="/verification">Proposer vos services de livraisons ou de GP</Link> </h1>
           </form>
           {error && <div>:{error}</div>}
         </div>
