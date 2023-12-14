@@ -4,6 +4,7 @@ import Services from './Services'
 import Login from './Login'
 import Register from './Register'
 import { Route,Routes,Navigate } from 'react-router-dom';
+
 import { useAuthContext } from './Hooks/useAuthContext'
 import "react-toastify/dist/ReactToastify.css"
 import Verification from './Verification'
@@ -20,7 +21,6 @@ function App() {
         <Route exact path="/register" element={!user?<Register />:<Navigate to="/account"/>} />
         <Route exact path="/login" element={!user ? <Login />:<Navigate to="/account"/>} />
         <Route exact path="/account" element={user? <Test />:<Navigate to ="/login"/> } />
-        <Route exact path="/verification" element={<Verification/>} />
       </Routes>
     </div>
   );

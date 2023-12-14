@@ -26,9 +26,9 @@ function Login() {
                 name="email"
                 placeholder="Email"
                 onChange={(e) =>
-                  setEmail(e.target.value)||setName(e.target.value)
+                  setEmail(e.target.value)
                 }
-                value={email||name}
+                value={email}
               />
             </div>
             <div>

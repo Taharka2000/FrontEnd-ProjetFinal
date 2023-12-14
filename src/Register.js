@@ -10,7 +10,6 @@ import "./style/Login.css"
   const {signup,error,isLoading}=useSignup()
  
  const handleSubmit=async (e)=>{
-
     e.preventDefault()
     await signup(email,password,name)
    }
@@ -65,8 +64,8 @@ import "./style/Login.css"
               You already have a account<Link to="/login">Login</Link>
             </span>
             <h1> <Link to="/verification">Proposer vos services de livraisons ou de GP</Link> </h1>
-          </form>
           {error && <div>:{error}</div>}
+          </form>
         </div>
       </div>
     </>

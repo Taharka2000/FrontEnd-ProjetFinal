@@ -20,7 +20,8 @@ export default function NavBar() {
     }
     return (
         <>
-            <header className={color ? "header header-bg" : "header"}>
+          
+          <header className={color ? "header header-bg" : "header"}>
                 <nav className='navBar'>
                     <ul className='flex images justify-center content-center'>
                         <img src="/Sengp.png" width='150px' className='mr-[45%]' alt="" />
@@ -75,6 +76,7 @@ export default function NavBar() {
                 </div>
 
             </header>
+         
          
         </>
     )

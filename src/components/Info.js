@@ -1,6 +1,8 @@
 import React from 'react'
 import "../style/Info.css"
 import { useLogout } from '../Hooks/useLogout'
+import { Link } from 'react-router-dom'
+import AboutUs from '../AboutUs'
 export default function Info() {
     const { logout } = useLogout()
     const handleClick = () => {
@@ -12,11 +14,14 @@ export default function Info() {
                 <div>
                     <h1>About</h1>
                 </div>
-                <a href="/account/about">
+                
                     <div>
                         <img src="/dashboard.png" width="30px" alt="" />
+                        <AboutUs/>
                     </div>
-                </a>
+                
+             
+               
                 <a href="">
                     <div className='flex'>
                         <img src="/mail.png" width="33px" alt="" />
