@@ -22,12 +22,7 @@ export const useAjout = () => {
 
       const json = await response.json();
 
-      if (!response.ok) {
-        setError(json.message || 'Une erreur inattendue sest produite.');
-      } else {
-        localStorage.setItem("user", JSON.stringify(json));
-        dispatch({ type: 'LOGIN', payload: json });
-      }
+   if (!response.ok) throw new Error(json.message || "An error occurred");
     } catch (error) {
       console.log('Erreur lors de la requête d\'ajout :', error);
       setError('Une erreur sest produite lors de la requête dajout.');
