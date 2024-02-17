@@ -4,9 +4,9 @@ import { useAuthContext } from "./useAuthContext";
 export const useAjout = () => {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
-  const { user, dispatch } = useAuthContext();
+  const { user } = useAuthContext();
 
-  const ajouter = async (email, heure, name, date) => {
+  const ajouter = async (DateDepart, DateArrive, LieuDepart,LieuArrive, heure) => {
     setIsLoading(true);
     setError(null);
 
@@ -17,7 +17,7 @@ export const useAjout = () => {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${user.token}`,
         },
-        body: JSON.stringify({ email, name, date, heure }),
+        body: JSON.stringify({ DateDepart, DateArrive, LieuDepart,LieuArrive, heure }),
       });
 
       const json = await response.json();

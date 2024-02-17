@@ -3,12 +3,58 @@ import axios from 'axios'
 import NavBar from './NavBar'
 import "./style/Services.css"
 export default function Services() {
-  const [users, setUsers] = useState([])
+  const [originalProducts, setOriginalProducts] = useState([]);
+  const [products, setProducts] = useState([]);
+  const [searchName, setSearchName] = useState('');
+  const [searchPrice, setSearchPrice] = useState('');
+
   useEffect(() => {
     axios.get("http://localhost:4000/take")
-      .then(result => setUsers(result.data))
-      .catch(err => console.log(err))
-  }, [])
+      .then(result => {
+        setOriginalProducts(result.data);
+        setProducts(result.data);
+      })
+      .catch(err => console.log(err));
+  }, []);
+
+  const filterProducts = () => {
+    let filteredProducts = originalProducts;
+
+    if (searchName) {
+      const nameSearch = searchName.toLowerCase();
+      filteredProducts = filteredProducts.filter(product =>
+        product.name.toLowerCase().includes(nameSearch)
+      );
+    }
+
+    if (searchPrice) {
+      const priceSearch = parseFloat(searchPrice);
+      filteredProducts = filteredProducts.filter(product =>
+        product.price === priceSearch
+      );
+    }
+
+    setProducts(filteredProducts);
+  }
+
+  const handleNameSearch = (e) => {
+    const value = e.target.value;
+    setSearchName(value);
+    if (!value) {
+      // Si le champ de recherche est vide, réinitialise la liste des produits
+      setProducts(originalProducts);
+    }
+  }
+
+  const handlePriceSearch = (e) => {
+    const value = e.target.value;
+    setSearchPrice(value);
+    if (!value) {
+      // Si le champ de recherche est vide, réinitialise la liste des produits
+      setProducts(originalProducts);
+    }
+  }
+
   return (
     <>
       <NavBar />
@@ -29,30 +75,46 @@ export default function Services() {
             </h4>
           </div>
           <div className='main1'>
-            <h1>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni laudantium tempore odio obcaecati aliquam saepe. Libero ipsam dolorum aliquid ipsum. Atque necessitatibus id sed non laborum, amet distinctio ex corrupti?
-              Commodi porro autem facere nam cum repellendus voluptatum eius neque soluta nostrum sapiente Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum laudantium, deserunt error, quis aliquid ut quod rem suscipit earum pariatur similique cumque maxime, non eos dolores totam explicabo distinctio unde?
-              Illum error eius eligendi officiis, cumque est quam nulla alias at natus ipsa eos harum qui unde explicabo exercitationem officia itaque ab autem perferendis aut debitis. Earum vel natus sequi?
-              Repellenero minima quibusdam quidem animi tempore quaerat, sapiente eligendi explicabo fuga? Dolor accusamus natus minima.
-              Itaque, non nihil fugiat vero error maiores necessitatibus maxime molestiae hic veniam optio voluptatum illo quo excepturi officiis nemo cum. Natus iste quae fugiat neque ducimus ea temporibus in delectus?
-              Iste ratione, nostrum impedit molestias aliquam amet autem? Omnis ducimus delectus voluptates eligendi culpa. Fugit cum totam inventore incidunt modi provident quia dolorem. Ipsa magni voluptate recusandae eveniet laudantium doloremque!
-              Illo voluptatem nobis, illum, nihil soluta explicabo labore at adipisci, eveniet eum optio quo odio. Vel dolore aperiam laboriosam nostrum, unde rerum, accusamus iusto ratione qui esse iste repudiandae quibusdam.</h1>
+          <div>
+                <div class="mb-3 w-[50%] flex flex-row justify-center">
+                    <div class="mb-6 flex">
+                    <input
+                type="text"
+                placeholder="Search by Product Name"
+                value={searchName}
+                onChange={handleNameSearch}
+                className="block w-auto p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              />
+              <input
+                type="text"
+                placeholder="Search by Product Price"
+                value={searchPrice}
+                onChange={handlePriceSearch}
+                className="block w-auto p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              />
+              <button onClick={filterProducts}>Filter</button>
+                        <span for="large-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Search by Title or Rating</span>
+                    </div>
+                </div>
+            </div>
           </div>
           <div>
             <div className='grid grid-cols-3'>
               {
-                users.map((user) => {
+                products.map((user) => {
                   return (
                     <>
                       <div className='  flex justify-center pt-8 ml-2'>
                         <div className='bg-gray-300  pnl'>
                           <div className='flex pt-[10px] justify-between'>
-                            <h2 className='pl-2'>{user.name}</h2>
+                            <h2 className='pl-2'>{user.DateDepart}</h2>
                             <button className='bg-green-400 rounded-lg w-[30%] mr-[10px]  p-[12px]'>Availble</button>
                           </div>
+                            <h3 className='mr-[10px]'>{user.DateArrive}</h3>
                           <div className='flex  justify-between pt-[20px]'>
-                            <h3 className='mr-[10px]'>{user.name}</h3>
-                            <h3>{user.date}</h3>
-                            <h3>{user.heure}</h3>
+                            <h3>{user.LieuDepart}</h3>
+                            <h3>{user.LieuArrive}</h3>
+                            <h3>{user.name}</h3>
                           </div>
                         </div>
                       </div>

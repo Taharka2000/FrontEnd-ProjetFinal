@@ -15,12 +15,13 @@ const customStyles = {
 };
 
 const AboutUs = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [date, setDate] = useState('');
+  const [DateArrive, setDateArrive] = useState('');
+  const [DateDepart, setDateDepart] = useState('');
+  const [LieuDepart, setLieuDepart] = useState('');
   const [heure, setHeure] = useState('');
+  const [LieuArrive, setLieuArrive] = useState('');
   const [errorText, setErrorText] = useState('');
-  
+
   const { ajouter } = useAjout();
   const { user } = useAuthContext();
   const [modalIsOpen, setIsOpen] = useState(false);
@@ -41,15 +42,15 @@ const AboutUs = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+
     if (user.role !== 'tiak-tiak') {
       handleError();
       return;
     }
-  
+
     try {
       setErrorText('');
-      await ajouter(email, heure, name, date);
+      await ajouter(DateDepart, heure, DateArrive, LieuDepart, LieuArrive);
       closeModal();
     } catch (error) {
       console.error('Erreur lors de la requête d\'ajout :', error);
@@ -62,7 +63,7 @@ const AboutUs = () => {
       <button onClick={user.role === 'tiak-tiak' ? openModal : handleError}>
         Ajouter Annonce
       </button>
-  
+
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
@@ -75,29 +76,38 @@ const AboutUs = () => {
             <p>{errorText}</p>
           </div>
         )}
-        
+
         {!errorText && (
           <div>
             <h2>Ajout de votre annonce</h2>
             <button onClick={closeModal}>Fermer</button>
             <form onSubmit={handleSubmit}>
               <h2>Ajouter une annonce</h2>
-              <div>
-                <label htmlFor='name'>Nom</label>
-                <input type='text' name='name' placeholder='Nom' onChange={(e) => setName(e.target.value)} />
+              <div className='flex flex-row'>
+                <div>
+                  <label htmlFor='LieuDepart'>Lieu de depart</label>
+                  <input type='text' name='LieuDepart' placeholder='Depart' onChange={(e) => setLieuDepart(e.target.value)} />
+                </div>
+                <div>
+                  <label htmlFor='LieuArrive'>Lieu d'Arrive</label>
+                  <input type='text' id='LieuArrive' name='date' placeholder='Arrive' onChange={(e) => setLieuArrive(e.target.value)} />
+                </div>
               </div>
+              <div className='flex flex-row' >
               <div>
-                <label htmlFor='email'>Email</label>
-                <input type='email' name='email' placeholder='Email' onChange={(e) => setEmail(e.target.value)} />
-              </div>
-              <div>
-                <label htmlFor='date'>Date de début</label>
-                <input type='date' id='date' name='date' onChange={(e) => setDate(e.target.value)} />
+                <label htmlFor='date'>Date de Depart</label>
+                <input type='date' name='DateDepart' placeholder='Email' onChange={(e) => setDateDepart(e.target.value)} />
               </div>
               <div>
                 <label htmlFor='heure'>Heure</label>
                 <input type='time' id='heure' name='heure' required onChange={(e) => setHeure(e.target.value)} />
               </div>
+              <div>
+                <label htmlFor='DateArrive'>Date d'arrivee</label>
+                <input type='date' name='DateArrive' placeholder='Date arrive' onChange={(e) => setDateArrive(e.target.value)} />
+              </div>
+              </div>
+              
               <button type='submit'>Soumettre</button>
             </form>
           </div>
