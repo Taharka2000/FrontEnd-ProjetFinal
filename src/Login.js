@@ -1,17 +1,18 @@
 import React, { useState } from "react";
-import { Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useLogin } from "./Hooks/login";
-import "./style/Login.css"
+import "./style/Login.css";
 import NavBar from "./NavBar";
+
 function Login() {
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
-  const [name, setName] = useState("")
-  const { login, error, isLoading } = useLogin()
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const { login, error, isLoading } = useLogin();
+
   const handleSubmit = async (e) => {
-    e.preventDefault()
-    await login(email, password,name)
-  }
+    e.preventDefault();
+    await login(email, password);
+  };
   return (
     <>
       <NavBar />
@@ -43,12 +44,12 @@ function Login() {
                 value={password}
               />
             </div>
-            <button className="bnt1" disabled={isLoading}>Submit</button>
-            <div className="error1" >
-              {error && <div className="error">{error}</div>}
-            </div>
+            <button className="bnt1" disabled={isLoading}>
+              {isLoading ? "Loading..." : "Submit"}
+            </button>
+            {error && <div className="error">{error}</div>}
             <span>
-              You already have a account <Link to="/register"> Register </Link> Here
+              Don't have an account? <Link to="/register">Register Here</Link>
             </span>
           </form>
         </div>
